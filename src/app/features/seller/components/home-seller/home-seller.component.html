@@ -1,0 +1,80 @@
+<div class="h-[50%] w-full relative">
+  <img class="w-full h-[50%] lg:w-[50%] lg:justify-self-center z-0" src="https://test-mercado.s3.sa-east-1.amazonaws.com/images-app/images/banner3.png" alt="card-image" />
+  <div class="absolute bottom-0 h-10 z-10 bg-green-900 w-full opacity-75 flex">
+    <div class="w-[100%] justify-self-center flex items-center align-middle justify-between mx-5 text-white font-bold text-xs">
+        <div class="flex space-x-1">
+          <span><ng-icon hlm size='sm' name="lucideTimer" /></span>
+          <p>Entrega en: 40 min</p>
+        </div>
+        <div class="flex space-x-2">
+          <span><ng-icon hlm size='sm' name="lucideBike" /></span>
+          <p>Domicilio: $3.000</p>
+        </div>
+    </div>
+  </div>
+  <div class="w-full h-[50%] bg-blue-500"></div>
+</div>
+
+<!-- Contenedor para la lista de categorías fija -->
+<div class="categories-fixed-container " #categoriesContainer>
+  <div class="bg-green-50 rounded-b-sm py-2 px-4 flex items-center justify-start min-h-[60px] overflow-x-scroll hide-scroll-bar">
+    <div class="flex flex-nowrap gap-4">
+      @for (item of categoriasList; track $index) {
+        <a (click)="scrollToCategory(item)" class="cursor-pointer">
+          <div class="w-auto h-auto py-2 px-4 flex items-center rounded-lg shadow-sm bg-white border border-gray-200 hover:bg-gray-50 transition-colors">
+            <span class="text-sm font-medium text-gray-700">{{item}}</span>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</div>
+
+<div class="product-sections">
+  <div *ngFor="let category of categories" [id]="category.name">
+    <h4 class="mx-4 mt-6 mb-3 text-lg font-semibold text-gray-800">{{category.name}}</h4>
+    <div class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mx-2 items-center justify-center my-2">
+      <ng-container *ngFor="let product of category.products">
+        <app-product-card class="w-full" [product]="product"></app-product-card>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<style>
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Estilos para el contenedor fijo de categorías */
+.categories-fixed-container {
+  position: sticky;
+  top: 60px; /* Posición debajo del menú superior */
+  z-index: 90; /* Z-index menor que el menú superior */
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  width: 100%;
+
+}
+
+.categories-fixed-container.sticky {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding-top: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Estilos para el menú superior */
+.header-menu {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: 60px; /* Altura fija para el menú */
+}
+</style>

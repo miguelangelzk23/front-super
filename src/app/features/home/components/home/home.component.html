@@ -1,0 +1,103 @@
+
+
+
+<hlm-form-field class="justify-self-center my-5">
+  <input class="w-100 rounded-[5px] border-2 border-gray-300" hlmInput type="email" placeholder="Buscar..."  />
+</hlm-form-field>
+
+<div class="flex items-center justify-center">
+  <hlm-carousel class="w-12/12 " [plugins]="plugins">
+    <hlm-carousel-content class="-ml-1">
+    @for (item of Categories; track item) {
+      <hlm-carousel-item class="rounded-sm px-1.5 md:px-2 basis-[85%] sm:basis-[85%] md:basis[100%] md:basis-1/3 lg:basis-1/3  ">
+        <div class="p-1">
+          <section hlmCard class="h-32 lg:h-32">
+            <img   class="object-cover w-full h-full rounded-md"  src="{{item.UrlImage}}" alt="">
+        </section>
+        </div>
+      </hlm-carousel-item>
+    }
+    </hlm-carousel-content>
+  </hlm-carousel>
+</div>
+
+<div class="">
+  <div class="flex flex-col p-1  rounded-md">
+              <div class="flex justify-between">
+                  <h2 class="ml-1.5 mb-1 text-md font-light">Categorias</h2>
+                  <h5 class="ml-1.5 mb-1 text-md font-light  mr-2 ">Ver mas</h5>
+              </div>
+            <div  class="flex overflow-x-scroll py-2  hide-scroll-bar">
+              <div class="flex flex-nowrap">
+                @for (item of categoryList; track item) {
+                  <button class="inline-block px-2" (click)="goToCategory(item.Id)">
+                    <div class="w-30 h-30 max-w-xs overflow-hidden rounded-xl shadow-sm bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                      <img class="w-30 h-30 object-cover contain-content" [src]="item.UrlImage" [alt]="item.Nombre" />
+                    </div>
+                    <span class="text-sm font-light">{{item.Nombre}}</span>
+                  </button>
+                }
+              </div>
+            </div>
+
+      </div>
+  </div>
+
+     <div>
+      <div class="flex flex-col p-1">
+          <div class="flex justify-between">
+              <h2 class="ml-1.5 mb-1 text-md font-light">Recomendado</h2>
+              <h5 class="ml-1.5 mb-1 text-md font-light  mr-2  ">Ver mas</h5>
+          </div>
+          <div  class="flex overflow-x-scroll pb-2 hide-scroll-bar">
+            <div class="flex flex-nowrap    ">
+              <div class="inline-block px-2">
+                <div class="w-40 h-40 max-w-xs overflow-hidden rounded-xl shadow-sm bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                    <img class=" w-40 h-40 object-cover contain-content " src="https://bogota.gov.co/sites/default/files/styles/1050px/public/2021-05/puestos-en-las-plazas-de-mercado.jpg" alt="card-image" />
+                </div>
+                <span class="text-sm  font-light">Bien Chido</span>
+              </div>
+              <div class="inline-block px-2">
+                  <div class="w-40 h-40 max-w-xs overflow-hidden rounded-xl shadow-sm bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                      <img class=" w-40 h-40 object-cover contain-content " src="https://test-mercado.s3.sa-east-1.amazonaws.com/images-app/images/banner3.png" alt="card-image" />
+                  </div>
+                  <span class="text-sm  font-light">Bien Chido</span>
+                </div>
+                <div class="inline-block px-2">
+                  <div class="w-40 h-40 max-w-xs overflow-hidden rounded-xl shadow-sm bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                      <img class=" w-40 h-40 object-cover contain-content " src="https://test-mercado.s3.sa-east-1.amazonaws.com/images-app/images/banner2.png" alt="card-image" />
+                  </div>
+                  <span class="text-sm  font-light">Bien Chido</span>
+                </div>
+                 <div class="inline-block px-2">
+                <div class="w-40 h-40 max-w-xs overflow-hidden rounded-xl shadow-sm bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                    <img class=" w-40 h-40 object-cover contain-content " src="https://test-mercado.s3.sa-east-1.amazonaws.com/images-app/images/banner1.png" alt="card-image" />
+                </div>
+                <span class="text-sm  font-light">Bien Chido</span>
+              </div>
+
+            </div>
+          </div>
+       </div>
+       </div>
+       <br>
+   <div class="flex align-middle justify-center">
+      <div class="inline-block px-2">
+          <div class="w-90 h-90 max-w-xs overflow-hidden rounded-xl shadow-sm bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+              <img class=" w-90 h-90 object-cover contain-content " src="https://test-mercado.s3.sa-east-1.amazonaws.com/images-app/images/banner3.png" alt="card-image" />
+          </div>
+          <span class="text-sm  font-light">Bien Chido</span>
+        </div>
+
+   </div>
+
+
+      <style>
+      .hide-scroll-bar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .hide-scroll-bar::-webkit-scrollbar {
+        display: none;
+      }
+      </style>

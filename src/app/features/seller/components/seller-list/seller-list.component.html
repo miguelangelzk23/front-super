@@ -1,0 +1,21 @@
+@for (item of items; track $index) {
+<div class=" w-11/12 justify-self-center mb-[4%] mt-1">
+  <h3 class="text-md font-semibold">{{item.name}}</h3>
+  <button class="h-[28%] relative  rounded-lg  " (click)="goToSeller(item.id)">
+    <img class="w-full h-[50%] lg:w-[50%] lg:justify-self-center z-0 rounded-lg" [src]="item.image" alt="card-image" />
+    <div class="absolute bottom-0 h-10 z-10 bg-green-950 w-full opacity-75 flex rounded-b-lg">
+      <div
+        class="w-[100%] justify-self-center flex items-center align-middle justify-between mx-5 text-white font-bold text-xs">
+        <div class="flex space-x-1">
+          <span><ng-icon hlm size='sm' name="lucideTimer" /></span>
+          <p>Entrega en: 40 min</p>
+        </div>
+        <div class="flex space-x-2">
+          <span><ng-icon hlm size='sm' name="lucideBike" /></span>
+          <p>Domicilio: $3.000</p>
+        </div>
+      </div>
+    </div>
+  </button>
+</div>
+}

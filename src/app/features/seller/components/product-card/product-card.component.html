@@ -1,0 +1,74 @@
+<hlm-sheet>
+  <button class="w-full text-left p-0 border-0 bg-transparent" brnSheetTrigger side="bottom">
+    <div class="bg-white shadow-md rounded-lg max-w-md h-full cursor-pointer">
+      <img class="rounded-t-lg p-5 h-[50%] w-full object-cover" [src]="product.image" [alt]="product.name">
+      <div class="px-2 pb-5">
+        <p class="text-gray-900 text-xs tracking-tight dark:text-gray-900">{{product.name}}</p>
+        <div class="flex items-start justify-start">
+          <span class="text-sm text-gray-900 font-semibold dark:text-gray-900">${{product.price}}</span>
+        </div>
+        <div class="flex justify-end items-end -mb-4 -mr-1">
+          <button *ngIf="!isQuantitySelectorVisible" (click)="showQuantitySelector($event)"
+            class="text-green-600 justify-end w-8 h-8 text-center font-extrabold text-lg">
+            <ng-icon hlm size='lg' name="lucideCirclePlus" />
+          </button>
+
+          <div *ngIf="isQuantitySelectorVisible" class="contain flex items-center space-x-0.5 z-10 rounded-md bg-green-400">
+            <button (click)="decreaseQuantity($event)"
+              class="px-2 py-0.5 flex items-center justify-center font-bold text-white bg-green-400 rounded-full border-none">
+              -
+            </button>
+            <span class="text-lg font-semibold px-2 py-0.5 rounded-full text-black bg-white border-none">
+              {{ quantity }}
+            </span>
+            <button (click)="increaseQuantity($event)"
+              class="px-2 py-0.5 flex items-center justify-center font-bold bg-green-400 text-white rounded-full border-none">
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </button>
+
+  <hlm-sheet-content *brnSheetContent='let ctx' class="w-full h-[85%]">
+    <hlm-sheet-header>
+      <h3 hlmSheetTitle class="text-xl font-semibold">{{product.name}}</h3>
+    </hlm-sheet-header>
+    <div class="py-4">
+      <div class="h-[20%] overflow-hidden">
+        <img class="w-full h-full object-cover rounded-lg" [src]="product.image" [alt]="product.name">
+      </div>
+      <div class="mt-4">
+        <p class="text-2xl font-bold">${{product.price}}</p>
+      </div>
+    </div>
+    <hlm-sheet-footer class="relative">
+      <p hlmSheetDescription class="text-gray-600">{{product.description}}</p>
+    </hlm-sheet-footer>
+    <div class="flex justify-center items-center">
+      <div class="absolute bottom-5 left-5">
+        <div class="flex justify-end items-end -mr-1">
+          <div class="contain flex items-center space-x-0.5 z-10 rounded-md bg-green-400">
+            <button (click)="decreaseQuantity($event)"
+              class="px-2 py-0.5 flex items-center justify-center font-bold text-white bg-green-400 rounded-full border-none">
+              -
+            </button>
+            <span class="text-lg font-semibold px-2 py-0.5 rounded-full text-black bg-white border-none">
+              {{ quantity }}
+            </span>
+            <button (click)="increaseQuantity($event)"
+              class="px-2 py-0.5 flex items-center justify-center font-bold bg-green-400 text-white rounded-full border-none">
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <button hlmButton class="bg-green-800 absolute bottom-5 right-5 justify-self-center w-[50%]" (click)="addToCart()">
+        Agregar al carrito ${{getTotalPrice()}}
+      </button>
+    </div>
+  </hlm-sheet-content>
+</hlm-sheet>
+

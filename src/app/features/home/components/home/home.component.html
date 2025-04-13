@@ -5,7 +5,7 @@
   <input class="w-100 rounded-[5px] border-2 border-gray-300" hlmInput type="email" placeholder="Buscar..."  />
 </hlm-form-field>
 
-<div class="flex items-center justify-center">
+<div class="flex items-center justify-center mt-6">
   <hlm-carousel class="w-12/12 " [plugins]="plugins">
     <hlm-carousel-content class="-ml-1">
     @for (item of Categories; track item) {
@@ -21,20 +21,20 @@
   </hlm-carousel>
 </div>
 
-<div class="">
+<div class="mt-6">
   <div class="flex flex-col p-1  rounded-md">
               <div class="flex justify-between">
-                  <h2 class="ml-1.5 mb-1 text-md font-light">Categorias</h2>
-                  <h5 class="ml-1.5 mb-1 text-md font-light  mr-2 ">Ver mas</h5>
+                  <h2 class="ml-1.5 mb-1 text-md font-semibold">Categorias</h2>
+                  <h5 class="ml-1.5 mb-1 text-md font-semibold  mr-2 ">Ver mas</h5>
               </div>
             <div  class="flex overflow-x-scroll py-2  hide-scroll-bar">
               <div class="flex flex-nowrap">
                 @for (item of categoryList; track item) {
                   <button class="inline-block px-2" (click)="goToCategory(item.Id)">
-                    <div class="w-30 h-30 max-w-xs overflow-hidden rounded-xl shadow-sm bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                      <img class="w-30 h-30 object-cover contain-content" [src]="item.UrlImage" [alt]="item.Nombre" />
+                    <div class="w-28 h-28 max-w-xs overflow-hidden rounded-xl shadow-sm bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                      <img class="w-28 h-28 object-cover contain-content" [src]="item.UrlImage" [alt]="item.Nombre" />
                     </div>
-                    <span class="text-sm font-light">{{item.Nombre}}</span>
+                    <span class="text-sm font-semibold">{{item.Nombre}}</span>
                   </button>
                 }
               </div>
@@ -43,11 +43,11 @@
       </div>
   </div>
 
-     <div>
+     <div class="mt-6">
       <div class="flex flex-col p-1">
           <div class="flex justify-between">
-              <h2 class="ml-1.5 mb-1 text-md font-light">Recomendado</h2>
-              <h5 class="ml-1.5 mb-1 text-md font-light  mr-2  ">Ver mas</h5>
+              <h2 class="ml-1.5 mb-1 text-md font-semibold">Recomendado</h2>
+              <h5 class="ml-1.5 mb-1 text-md font-semibold  mr-2  ">Ver mas</h5>
           </div>
           <div  class="flex overflow-x-scroll pb-2 hide-scroll-bar">
             <div class="flex flex-nowrap    ">
@@ -55,25 +55,25 @@
                 <div class="w-40 h-40 max-w-xs overflow-hidden rounded-xl shadow-sm bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                     <img class=" w-40 h-40 object-cover contain-content " src="https://bogota.gov.co/sites/default/files/styles/1050px/public/2021-05/puestos-en-las-plazas-de-mercado.jpg" alt="card-image" />
                 </div>
-                <span class="text-sm  font-light">Bien Chido</span>
+                <span class="text-sm  font-semibold">Bien Chido</span>
               </div>
               <div class="inline-block px-2">
                   <div class="w-40 h-40 max-w-xs overflow-hidden rounded-xl shadow-sm bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                       <img class=" w-40 h-40 object-cover contain-content " src="https://test-mercado.s3.sa-east-1.amazonaws.com/images-app/images/banner3.png" alt="card-image" />
                   </div>
-                  <span class="text-sm  font-light">Bien Chido</span>
+                  <span class="text-sm  font-semibold">Bien Chido</span>
                 </div>
                 <div class="inline-block px-2">
                   <div class="w-40 h-40 max-w-xs overflow-hidden rounded-xl shadow-sm bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                       <img class=" w-40 h-40 object-cover contain-content " src="https://test-mercado.s3.sa-east-1.amazonaws.com/images-app/images/banner2.png" alt="card-image" />
                   </div>
-                  <span class="text-sm  font-light">Bien Chido</span>
+                  <span class="text-sm  font-semibold">Bien Chido</span>
                 </div>
                  <div class="inline-block px-2">
                 <div class="w-40 h-40 max-w-xs overflow-hidden rounded-xl shadow-sm bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                     <img class=" w-40 h-40 object-cover contain-content " src="https://test-mercado.s3.sa-east-1.amazonaws.com/images-app/images/banner1.png" alt="card-image" />
                 </div>
-                <span class="text-sm  font-light">Bien Chido</span>
+                <span class="text-sm  font-semibold">Bien Chido</span>
               </div>
 
             </div>
@@ -81,15 +81,58 @@
        </div>
        </div>
        <br>
-   <div class="flex align-middle justify-center">
+
+       <div class="flex justify-start  items-center space-x-5 ml-4 mt-6">
+
+        <div class="flex flex-col p-1  rounded-md">
+          <div class="flex justify-between">
+              <h2 class="ml-1.5 mb-1 text-md font-semibold">Categorias</h2>
+              <h5 class="ml-1.5 mb-1 text-md font-semibold  mr-2 ">Ver mas</h5>
+          </div>
+        <div  class="flex overflow-x-scroll  py-2  hide-scroll-bar">
+          <div class="flex flex-nowrap space-x-7">
+            <div class="flex flex-col items-center">
+              <hlm-avatar class="w-28 h-28">
+                <img src="{{servicio1}}" alt='spartan logo. Resembling a spartanic shield' hlmAvatarImage />
+                <span class='text-white bg-destructive' hlmAvatarFallback>RG</span>
+              </hlm-avatar>
+              <span class="text-sm font-semibold">Aseo</span>
+            </div>
+
+
+             <div class="flex flex-col items-center">
+               <hlm-avatar class="w-28 h-28">
+                 <img src="{{servicio2}}" alt='spartan logo. Resembling a spartanic shield' hlmAvatarImage />
+                 <span class='text-white bg-destructive' hlmAvatarFallback>RG</span>
+                </hlm-avatar>
+                <span class="text-sm font-semibold">Remodelacion</span>
+              </div>
+
+              <div class="flex flex-col items-center">
+                <hlm-avatar class="w-28 h-28">
+                 <img src="{{servicio3}}" alt='spartan logo. Resembling a spartanic shield' hlmAvatarImage />
+                 <span class='text-white bg-destructive' hlmAvatarFallback>RG</span>
+                </hlm-avatar>
+                <span class="text-sm font-semibold">Cerrajero</span>
+              </div>
+          </div>
+        </div>
+
+  </div>
+
+
+       </div>
+       <br>
+   <div class="flex align-middle justify-center  mt-6">
       <div class="inline-block px-2">
           <div class="w-90 h-90 max-w-xs overflow-hidden rounded-xl shadow-sm bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
               <img class=" w-90 h-90 object-cover contain-content " src="https://test-mercado.s3.sa-east-1.amazonaws.com/images-app/images/banner3.png" alt="card-image" />
           </div>
-          <span class="text-sm  font-light">Bien Chido</span>
+          <span class="text-sm  font-semibold">Bien Chido</span>
         </div>
 
    </div>
+
 
 
       <style>

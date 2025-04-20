@@ -13,6 +13,7 @@ import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideAlignJustify, lucideChevronRight, lucideShoppingCart, lucideArrowLeft } from '@ng-icons/lucide';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { CartComponent } from '../../../features/cart/components/cart/cart.component';
 
 @Component({
   selector: 'app-header',
@@ -22,7 +23,7 @@ import { filter } from 'rxjs/operators';
  NgIcon,
     HlmSheetHeaderComponent,
     HlmSheetTitleDirective,
-    BrnSheetContentDirective, BrnSheetTriggerDirective],
+    BrnSheetContentDirective, BrnSheetTriggerDirective,CartComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 

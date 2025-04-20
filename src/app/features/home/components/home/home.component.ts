@@ -31,6 +31,10 @@ export class HomeComponent {
   servicio2 = "/images/services/2.png"
   servicio3 = "/images/services/3.png"
 
+  recomendado1 = "/images/destacado/1.jpg"
+  recomendado2 = "/images/destacado/2.jpg"
+  recomendado3 = "/images/destacado/3.png"
+
 
   items = Array.from({ length: 5}, (_, i) => i + 1);
   public plugins = [Autoplay({ delay: 3000 })];

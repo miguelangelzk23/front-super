@@ -1,0 +1,75 @@
+<div class="container mx-auto px-0 py-4">
+  <!-- Lista de productos en el carrito -->
+  <div class="space-y-4 overflow-y-auto max-h-[500px] bg-gray-100 px-4 py-3 shadow-md rounded-lg">
+    @for (item of cartItems; track item.id) {
+      <div class="bg-white rounded-lg shadow-md p-3 ">
+        <div class="flex items-center space-x-3">
+          <!-- Imagen del producto -->
+          <div class="w-12 h-12 flex-shrink-0">
+            <img [src]="item.image" [alt]="item.name" class="w-full h-full object-cover rounded-md">
+          </div>
+
+          <!-- Información del producto -->
+          <div class="flex-grow">
+            <h3 class="text-sm font-medium">{{item.name}}</h3>
+            <p class="text-primary text-xs font-semibold mt-1">${{item.price}}</p>
+          </div>
+
+          <!-- Controles de cantidad -->
+          <div class="flex items-center space-x-1">
+            <button
+              class="bg-gray-100 hover:bg-gray-200 rounded-full p-1"
+              (click)="decreaseQuantity(item)">
+              <ng-icon name="lucideMinus" size="14"></ng-icon>
+            </button>
+            <span class="w-6 text-center text-sm">{{item.quantity}}</span>
+            <button
+              class="bg-gray-100 hover:bg-gray-200 rounded-full p-1"
+              (click)="increaseQuantity(item)">
+              <ng-icon name="lucidePlus" size="14"></ng-icon>
+            </button>
+          </div>
+
+          <!-- Botón eliminar -->
+          <button
+            hlmBtn
+            variant="ghost"
+            size="sm"
+            (click)="removeItem(item)"
+            class="text-red-500 hover:text-red-700">
+            <ng-icon name="lucideTrash2" size="18"></ng-icon>
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Resumen del carrito -->
+  <div class="mt-8 bg-green-50 rounded-lg shadow-sm p-4">
+    <h2 class="text-lg font-semibold mb-3">Resumen del Pedido</h2>
+    <div class="space-y-2">
+      <div class="flex justify-between text-sm">
+        <span>Subtotal</span>
+        <span>${{calculateTotal()}}</span>
+      </div>
+      <div class="flex justify-between text-sm">
+        <span>Envío</span>
+        <span>Gratis</span>
+      </div>
+      <div class="border-t pt-2 mt-2">
+        <div class="flex justify-between font-bold text-sm">
+          <span>Total</span>
+          <span>${{calculateTotal()}}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón de checkout -->
+    <button
+      hlmBtn
+      class="w-full mt-4"
+      (click)="goToCheckout()">
+      Proceder al Pago
+    </button>
+  </div>
+</div>
